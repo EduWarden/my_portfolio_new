@@ -53,18 +53,18 @@ const Portfolio = () => {
 
   const certificates: Certificate[] = [
     {
-      id: 1,
-      title: "Advanced React and Redux",
-      organization: "Udemy",
-      date: "2023",
-      image: "/placeholder.svg"
+      id: 2,
+      title: "Second place in graphic design",
+      organization: "Eurasian National University, ENEU",
+      date: "2025",
+      image: "enu.png"
     },
     {
-      id: 2,
-      title: "JavaScript Algorithms and Data Structures",
-      organization: "freeCodeCamp",
-      date: "2022",
-      image: "/placeholder.svg"
+      id: 1,
+      title: "Python course",
+      organization: "GeekBrains",
+      date: "2023",
+      image: "GeekBrains.png"
     },
     {
       id: 3,
