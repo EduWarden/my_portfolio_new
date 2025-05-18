@@ -52,14 +52,14 @@ const Portfolio = () => {
 
   const certificates: Certificate[] = [
     {
-      id: 1,
+      id: 2,
       title: "Second place in graphic design",
       organization: "Eurasian National University, ENEU",
       date: "2025",
       image: "enu.png"
     },
     {
-      id: 2,
+      id: 1,
       title: "Python course",
       organization: "GeekBrains",
       date: "2023",
@@ -67,12 +67,10 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "Your career start: how to use the \"Electronic labor exchange\"\n" +
-          " can be used",
-      organization: "State Institution \"Ministry of Labor and Social Protection of the Population of the Republic\n" +
-          " Kazakhstan\"",
-      date: "2025",
-      image: "Certificate.png"
+      title: "Responsive Web Design",
+      organization: "freeCodeCamp",
+      date: "2021",
+      image: "/placeholder.svg"
     }
   ];
 
@@ -118,23 +116,23 @@ const Portfolio = () => {
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Portfolio Showcase</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Portfolio Showcase</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm sm:text-base">
               Explore my journey through projects, certifications, and technical expertise.
               Each section represents a milestone in my continuous learning path.
             </p>
           </div>
 
           <Tabs defaultValue="projects" className="w-full">
-            <TabsList className="grid grid-cols-3 mb-12 bg-black/20 border border-white/10">
-              <TabsTrigger value="projects" className="flex items-center gap-2 data-[state=active]:bg-portfolio-purple/20">
-                <Code size={16} /> Projects
+            <TabsList className="grid grid-cols-3 mb-8 sm:mb-12 bg-black/20 border border-white/10">
+              <TabsTrigger value="projects" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20">
+                <Code size={14} className="hidden sm:inline" /> Projects
               </TabsTrigger>
-              <TabsTrigger value="certificates" className="flex items-center gap-2 data-[state=active]:bg-portfolio-purple/20">
-                <File size={16} /> Certificates
+              <TabsTrigger value="certificates" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20">
+                <File size={14} className="hidden sm:inline" /> Certificates
               </TabsTrigger>
-              <TabsTrigger value="tech-stack" className="flex items-center gap-2 data-[state=active]:bg-portfolio-purple/20">
-                <Code size={16} /> Tech Stack
+              <TabsTrigger value="tech-stack" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20">
+                <Code size={14} className="hidden sm:inline" /> Tech Stack
               </TabsTrigger>
             </TabsList>
 
@@ -156,17 +154,17 @@ const Portfolio = () => {
                         </AspectRatio>
                       </div>
 
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-portfolio-purple transition-colors">
+                      <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-portfolio-purple transition-colors">
                         {project.title}
                       </h3>
 
-                      <p className="text-gray-400 mb-4">{project.description}</p>
+                      <p className="text-gray-400 mb-4 text-sm sm:text-base line-clamp-3">{project.description}</p>
 
                       <div className="flex flex-wrap gap-2 mb-4">
                         {project.technologies.map((tech) => (
                             <span
                                 key={tech}
-                                className="bg-portfolio-purple/10 text-portfolio-purple px-3 py-1 rounded-full text-xs"
+                                className="bg-portfolio-purple/10 text-portfolio-purple px-2 sm:px-3 py-1 rounded-full text-xs"
                             >
                         {tech}
                       </span>
@@ -175,9 +173,9 @@ const Portfolio = () => {
 
                       <a
                           href={project.url}
-                          className="inline-flex items-center text-portfolio-purple hover:text-portfolio-blue transition-colors"
+                          className="inline-flex items-center text-portfolio-purple hover:text-portfolio-blue transition-colors text-sm sm:text-base"
                       >
-                        View Project <Link size={16} className="ml-1" />
+                        View Project <Link size={14} className="ml-1" />
                       </a>
                     </div>
                 ))}
@@ -185,7 +183,7 @@ const Portfolio = () => {
             </TabsContent>
 
             <TabsContent value="certificates" className="mt-2 animate-fade-in">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                 {certificates.map((certificate) => (
                     <div
                         key={certificate.id}
@@ -199,9 +197,9 @@ const Portfolio = () => {
                         />
                       </AspectRatio>
 
-                      <div className="p-4">
-                        <h3 className="text-lg font-semibold mb-1">{certificate.title}</h3>
-                        <p className="text-gray-400 text-sm">{certificate.organization}</p>
+                      <div className="p-3 sm:p-4">
+                        <h3 className="text-base sm:text-lg font-semibold mb-1 line-clamp-1">{certificate.title}</h3>
+                        <p className="text-gray-400 text-xs sm:text-sm line-clamp-1">{certificate.organization}</p>
                         <p className="text-portfolio-purple text-xs mt-2">{certificate.date}</p>
                       </div>
                     </div>
@@ -210,21 +208,21 @@ const Portfolio = () => {
             </TabsContent>
 
             <TabsContent value="tech-stack" className="mt-2 animate-fade-in">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4 sm:gap-6">
                 {techStack.map((tech, index) => (
                     <div
                         key={tech.name}
-                        className="bg-black/20 backdrop-blur-sm border border-white/10 rounded-lg p-4 flex flex-col items-center justify-center text-center hover:bg-portfolio-purple/5 transition-colors animate-fade-in"
+                        className="bg-black/20 backdrop-blur-sm border border-white/10 rounded-lg p-3 sm:p-4 flex flex-col items-center justify-center text-center hover:bg-portfolio-purple/5 transition-colors animate-fade-in"
                         style={{ animationDelay: `${index * 0.1}s` }}
                     >
-                      <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-4 p-2 hover:scale-110 transition-transform duration-300">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-white/5 flex items-center justify-center mb-3 sm:mb-4 p-2 hover:scale-110 transition-transform duration-300">
                         <img
                             src={tech.icon}
                             alt={tech.name}
                             className="w-full h-full object-contain"
                         />
                       </div>
-                      <span className="font-medium">{tech.name}</span>
+                      <span className="font-medium text-sm sm:text-base">{tech.name}</span>
                     </div>
                 ))}
               </div>
