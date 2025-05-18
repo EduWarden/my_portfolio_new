@@ -42,7 +42,7 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: <Code size={16} /> },
+    { id: 'Home', label: 'Home', icon: <Code size={16} /> },
     { id: 'about', label: 'About', icon: <User size={16} /> },
     { id: 'portfolio', label: 'Portfolio', icon: <Code size={16} /> },
     { id: 'contact', label: 'Contact', icon: <Mail size={16} /> }

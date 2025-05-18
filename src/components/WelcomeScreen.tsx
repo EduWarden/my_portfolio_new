@@ -50,7 +50,7 @@ const WelcomeScreen = ({ duration = 3000, onComplete }: WelcomeScreenProps) => {
                   className="relative z-10 text-center"
               >
                 <h1 className={`${isMobile ? 'text-3xl sm:text-4xl' : 'text-5xl md:text-7xl'} font-bold text-gradient leading-tight`}>
-                  {isMobile ? 'Welcome to\nmy website' : 'Welcome to my website'}
+                  {isMobile ? 'Welcome to\nmy portfolio' : 'Welcome to my portfolio'}
                 </h1>
                 <motion.div
                     initial={{ width: "0%" }}
