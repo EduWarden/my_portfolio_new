@@ -52,14 +52,14 @@ const Portfolio = () => {
 
   const certificates: Certificate[] = [
     {
-      id: 2,
+      id: 1,
       title: "Second place in graphic design",
       organization: "Eurasian National University, ENEU",
       date: "2025",
       image: "enu.png"
     },
     {
-      id: 1,
+      id: 2,
       title: "Python course",
       organization: "GeekBrains",
       date: "2023",
@@ -67,10 +67,12 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "-",
-      organization: "-",
-      date: "-",
-      image: "/placeholder.svg"
+      title: "Your career start: how to use the \"Electronic labor exchange\"\n" +
+          " can be used",
+      organization: "State Institution \"Ministry of Labor and Social Protection of the Population of the Republic\n" +
+          " Kazakhstan\"",
+      date: "2025",
+      image: "Certificate.png"
     }
   ];
 
