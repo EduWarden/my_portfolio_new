@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Code, File, Link, Image } from 'lucide-react';
+import { Code, File, Link as LinkIcon, Image } from 'lucide-react';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface Project {
   id: number;
@@ -28,6 +29,7 @@ interface TechItem {
 
 const Portfolio = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
 
   const projects: Project[] = [
     {
@@ -124,15 +126,15 @@ const Portfolio = () => {
           </div>
 
           <Tabs defaultValue="projects" className="w-full">
-            <TabsList className="grid grid-cols-3 mb-8 sm:mb-12 bg-black/20 border border-white/10">
-              <TabsTrigger value="projects" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20">
-                <Code size={14} className="hidden sm:inline" /> Projects
+            <TabsList className="grid grid-cols-3 mb-8 sm:mb-20 bg-black/20 border border-white/10 h-14 p-1">
+              <TabsTrigger value="projects" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20 py-2">
+                <Code size={20} className="hidden sm:inline" /> Projects
               </TabsTrigger>
-              <TabsTrigger value="certificates" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20">
-                <File size={14} className="hidden sm:inline" /> Certificates
+              <TabsTrigger value="certificates" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20 py-2">
+                <File size={20} className="hidden sm:inline" /> Certificates
               </TabsTrigger>
-              <TabsTrigger value="tech-stack" className="flex items-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20">
-                <Code size={14} className="hidden sm:inline" /> Tech Stack
+              <TabsTrigger value="tech-stack" className="flex items-center justify-center gap-1 sm:gap-2 text-xs sm:text-base data-[state=active]:bg-portfolio-purple/20 py-2">
+                <Code size={20} className="hidden sm:inline" /> Tech Stack
               </TabsTrigger>
             </TabsList>
 
@@ -166,16 +168,18 @@ const Portfolio = () => {
                                 key={tech}
                                 className="bg-portfolio-purple/10 text-portfolio-purple px-2 sm:px-3 py-1 rounded-full text-xs"
                             >
-                        {tech}
-                      </span>
+                              {tech}
+                            </span>
                         ))}
                       </div>
 
                       <a
                           href={project.url}
                           className="inline-flex items-center text-portfolio-purple hover:text-portfolio-blue transition-colors text-sm sm:text-base"
+                          target="_blank"
+                          rel="noopener noreferrer"
                       >
-                        View Project <Link size={14} className="ml-1" />
+                        View Project <LinkIcon size={14} className="ml-1" />
                       </a>
                     </div>
                 ))}

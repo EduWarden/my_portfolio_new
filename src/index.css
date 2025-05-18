@@ -31,7 +31,7 @@
   * {
     @apply border-border selection:bg-portfolio-purple/10 selection:text-portfolio-purple;
   }
-  
+
   body {
     @apply bg-background text-foreground antialiased overflow-x-hidden;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
@@ -48,7 +48,7 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  
+
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
@@ -56,19 +56,33 @@
   .text-gradient {
     @apply bg-gradient-to-r from-portfolio-purple to-portfolio-blue bg-clip-text text-transparent;
   }
-  
+
+  /* Навигационные элементы - оставляем только в utilities */
   .nav-item {
-    @apply relative text-gray-400 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-portfolio-purple after:transition-all after:duration-300;
+    @apply relative text-gray-400 hover:text-white transition-colors duration-300;
   }
-  
-  .nav-item:hover::after {
-    @apply w-full;
+
+  .nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(90deg, rgb(138, 75, 255) 0%, rgb(91, 159, 255) 100%);
+    transition: width 0.3s;
   }
-  
+
+  .nav-item:hover::after,
+  .nav-item.active::after {
+    width: 100%;
+  }
+
+  .nav-item:hover,
   .nav-item.active {
-    @apply text-white after:w-full;
+    color: white;
   }
-  
+
   .card-glow {
     @apply relative overflow-hidden rounded-xl border border-white/10 bg-black/20 p-6 before:absolute before:inset-0 before:-translate-y-full before:animate-[pulse_2s_ease-in-out_infinite] before:bg-gradient-to-b before:from-portfolio-purple/30 before:via-portfolio-blue/10 before:to-transparent before:opacity-0 hover:before:opacity-100;
   }
@@ -139,6 +153,7 @@ button:hover .arrow-icon {
     border-color: rgba(139, 92, 246, 0.3);
   }
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -150,29 +165,4 @@ button:hover .arrow-icon {
 
 .animate-fade-in {
   animation: fadeIn 0.3s ease-in-out forwards;
-}
-
-.nav-item {
-  position: relative;
-  color: rgba(255, 255, 255, 0.7);
-  transition: color 0.3s;
-}
-
-.nav-item:hover, .nav-item.active {
-  color: white;
-}
-
-.nav-item::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background: linear-gradient(90deg, rgb(138, 75, 255) 0%, rgb(91, 159, 255) 100%);
-  transition: width 0.3s;
-}
-
-.nav-item:hover::after, .nav-item.active::after {
-  width: 100%;
 }

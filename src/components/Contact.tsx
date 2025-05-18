@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect } from 'react';
 import { Mail, Github, Linkedin, Send } from 'lucide-react';
 
@@ -64,7 +63,7 @@ const Contact = () => {
                     <div className="overflow-hidden">
                       <p className="text-sm text-gray-400">Telegram</p>
                       <a
-                          href="https://t.me/@GU7eNTAG"
+                          href="https://t.me/GU7eNTAG"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="font-medium hover:text-portfolio-purple transition-colors text-sm sm:text-base truncate block"
@@ -126,7 +125,7 @@ const Contact = () => {
                     <Github size={22} />
                   </a>
                   <a
-                      href="https://t.me/@GU7eNTAG"
+                      href="https://t.me/GU7eNTAG"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-12 h-12 rounded-full bg-portfolio-purple/10 flex items-center justify-center text-portfolio-purple hover:bg-portfolio-purple hover:text-white transition-colors"
