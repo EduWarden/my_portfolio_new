@@ -1,0 +1,143 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-portfolio-purple/10 selection:text-portfolio-purple;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    background-image: radial-gradient(circle at center, #1a103d 0%, #0c071b 100%);
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-portfolio-purple to-portfolio-blue bg-clip-text text-transparent;
+  }
+  
+  .nav-item {
+    @apply relative text-gray-400 hover:text-white transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-portfolio-purple after:transition-all after:duration-300;
+  }
+  
+  .nav-item:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-item.active {
+    @apply text-white after:w-full;
+  }
+  
+  .card-glow {
+    @apply relative overflow-hidden rounded-xl border border-white/10 bg-black/20 p-6 before:absolute before:inset-0 before:-translate-y-full before:animate-[pulse_2s_ease-in-out_infinite] before:bg-gradient-to-b before:from-portfolio-purple/30 before:via-portfolio-blue/10 before:to-transparent before:opacity-0 hover:before:opacity-100;
+  }
+}
+
+.welcome-animation {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes reveal {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.letter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.typing-cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Button hover animations */
+button:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.0);
+  }
+}
+
+.pulse-on-hover:hover {
+  animation: pulse-border 1.5s infinite;
+}
+
+/* Slower glow animation for tech stack items */
+@keyframes slow-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.3), 0 0 15px rgba(139, 92, 246, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+}
+
