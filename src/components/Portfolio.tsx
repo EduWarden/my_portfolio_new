@@ -67,9 +67,9 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "Responsive Web Design",
-      organization: "freeCodeCamp",
-      date: "2021",
+      title: "-",
+      organization: "-",
+      date: "-",
       image: "/placeholder.svg"
     }
   ];
