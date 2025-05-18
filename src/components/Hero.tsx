@@ -233,7 +233,10 @@ const Home: React.FC = () => {
                   <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
                      data-aos="fade-up"
                      data-aos-delay="1000">
-                    Menciptakan Website Yang Inovatif, Fungsional, dan User-Friendly untuk Solusi Digital.
+                    I am a Frontend Developer with a passion for building beautiful and functional web applications.
+                    I am currently pursuing my Bachelor's Degree in Computer Science at the University of Indonesia.
+                    I am also a member of the Indonesian ReactJS User Group.
+                    '
                   </p>
 
                   {/* Tech Stack */}
