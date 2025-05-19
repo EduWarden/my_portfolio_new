@@ -123,7 +123,7 @@ const PAUSE_DURATION = 2000;
 const WORDS: string[] = ["Network & Telecom Student", "Tech Enthusiast"];
 const TECH_STACK: string[] = ["React", "TypeScript", "Vite", "Tailwind", "PostCSS"];
 const SOCIAL_LINKS: SocialLinkProps[] = [
-  { icon: Github, link: "https://github.com/EduWarden" },
+  { icon: Github, link: "https://github.com/Shiyn-dev" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/nurgisa-b-b79345357/" },
 ];
 
