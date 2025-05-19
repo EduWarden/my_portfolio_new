@@ -121,7 +121,7 @@ const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
 const WORDS: string[] = ["Network & Telecom Student", "Tech Enthusiast"];
-const TECH_STACK: string[] = ["React", "Javascript", "Node.js", "Tailwind"];
+const TECH_STACK: string[] = ["React", "TypeScript", "Vite", "Tailwind"];
 const SOCIAL_LINKS: SocialLinkProps[] = [
   { icon: Github, link: "https://github.com/EduWarden" },
   { icon: Linkedin, link: "https://www.linkedin.com/in/nurgisa-b-b79345357/" },
