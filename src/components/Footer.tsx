@@ -22,7 +22,7 @@ const Footer = () => {
           
           <div className="flex items-center gap-6 mt-4 md:mt-0">
             <a 
-              href="#home" 
+              href="#Home"
               className="text-gray-400 hover:text-white transition-colors"
             >
               Home
