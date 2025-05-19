@@ -82,7 +82,7 @@ const Contact = () => {
                     <div className="overflow-hidden">
                       <p className="text-sm text-gray-400">GitHub</p>
                       <a
-                          href="https://github.com/EduWarden"
+                          href="https://github.com/Shiyn-dev"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="font-medium hover:text-portfolio-purple transition-colors text-sm sm:text-base truncate block"
@@ -117,7 +117,7 @@ const Contact = () => {
                 </p>
                 <div className="mt-8 flex justify-center gap-6">
                   <a
-                      href="https://github.com/EduWarden"
+                      href="https://github.com/Shiyn-dev"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-12 h-12 rounded-full bg-portfolio-purple/10 flex items-center justify-center text-portfolio-purple hover:bg-portfolio-purple hover:text-white transition-colors"
