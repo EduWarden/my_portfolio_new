@@ -87,7 +87,7 @@ const Contact = () => {
                           rel="noopener noreferrer"
                           className="font-medium hover:text-portfolio-purple transition-colors text-sm sm:text-base truncate block"
                       >
-                        github.com/EduWarden
+                        github.com/Shiyn-dev
                       </a>
                     </div>
                   </div>
