@@ -1,10 +1,46 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Code, Award, Boxes, Link as LinkIcon } from 'lucide-react';
+import { Code, Award, Boxes, Link as LinkIcon, X } from 'lucide-react';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { useIsMobile } from '@/hooks/use-mobile';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+
+// Modal component for viewing certificates
+const ImageModal = ({ isOpen, onClose, imageUrl, title }) => {
+  if (!isOpen) return null;
+
+  return (
+      <div
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          onClick={onClose}
+      >
+        <div
+            className="relative max-w-4xl w-full bg-black/40 border border-white/20 rounded-lg overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+        >
+          <button
+              onClick={onClose}
+              className="absolute top-2 right-2 bg-black/40 hover:bg-black/60 text-white p-1 rounded-full transition-colors z-10"
+          >
+            <X size={20} />
+          </button>
+
+          <div className="p-4">
+            <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
+            <div className="relative w-full">
+              <img
+                  src={imageUrl}
+                  alt={title}
+                  className="w-full object-contain rounded"
+                  style={{ maxHeight: '80vh' }}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+  );
+};
 
 interface Project {
   id: number;
@@ -83,11 +119,13 @@ const ToggleButton = ({ onClick, isShowingMore }: { onClick: () => void; isShowi
 );
 
 const Portfolio = () => {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = React.useRef(null);
   const isMobile = useIsMobile();
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const [activeTab, setActiveTab] = useState("projects");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
 
   const initialItems = isMobile ? 4 : 6;
 
@@ -152,7 +190,7 @@ const Portfolio = () => {
   const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
 
   // Toggle show more/less function
-  const toggleShowMore = useCallback((type: string) => {
+  const toggleShowMore = React.useCallback((type: string) => {
     if (type === 'projects') {
       setShowAllProjects(prev => !prev);
     } else {
@@ -160,8 +198,20 @@ const Portfolio = () => {
     }
   }, []);
 
+  // Open modal with selected certificate
+  const openCertificateModal = (certificate) => {
+    setSelectedCertificate(certificate);
+    setModalOpen(true);
+  };
+
+  // Close modal
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedCertificate(null);
+  };
+
   // Initialize AOS animation library
-  useEffect(() => {
+  React.useEffect(() => {
     AOS.init({
       once: false, // This will make animations occur every time
       duration: 1000,
@@ -327,7 +377,8 @@ const Portfolio = () => {
                           key={certificate.id}
                           data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
                           data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
-                          className="bg-black/20 border border-white/10 rounded-lg overflow-hidden hover:border-[#a78bfa]/30 transition-colors"
+                          className="bg-black/20 border border-white/10 rounded-lg overflow-hidden hover:border-[#a78bfa]/30 transition-colors cursor-pointer"
+                          onClick={() => openCertificateModal(certificate)}
                       >
                         <AspectRatio ratio={4/3} className="bg-black/30">
                           <img
@@ -387,6 +438,14 @@ const Portfolio = () => {
             </TabsContent>
           </Tabs>
         </div>
+
+        {/* Certificate Modal */}
+        <ImageModal
+            isOpen={modalOpen}
+            onClose={closeModal}
+            imageUrl={selectedCertificate?.image}
+            title={selectedCertificate?.title}
+        />
       </section>
   );
 };
